@@ -23,6 +23,7 @@ namespace LibraryApplication.Controllers
         [HttpGet]
         public ActionResult LoginGiris()
         {
+            //home sayfasının içerisi tasarlancak home.cshtml sayfasında kod yaz tasarla
 
             return View("~/Views/Home/Home.cshtml");
         }
