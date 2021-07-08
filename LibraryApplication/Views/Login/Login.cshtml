@@ -1,66 +1,69 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-@*<script src="~/web/css/login.css"></script>*@
-<link href="@Url.Content("~/web/css/login.css")" rel="stylesheet" type="text/css" />
-
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Login</title>
-</head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #17a2b8;
+  height: 100vh;
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+</style>
 <body>
-    <div class="wrapper fadeInDown">
-        <div id="formContent">
-            <!-- Tabs Titles -->
-            <!-- Icon -->
-            <div class="fadeIn first">
-                @*<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />*@
-            </div>
-            <!-- Login Form -->
-            <form>
-                <input type="text" id="login" name ="loginName" class="fadeIn second"  placeholder="login">
-                <input type="text" id="password" name ="passwordName" class="fadeIn third" placeholder="password">
-                <input type="submit" class="fadeIn fourth" value="Log In" onclick="LogInButonu()">
-                @*<a class="btn btn-primary" href="@Url.Action("YourAction","YourController")">Click</a>*@
+    
+@using (Html.BeginForm("LoginGiris", "Login", FormMethod.Get))
 
-            </form>
-            <!-- Remind Passowrd -->
-            <div id="formFooter">
-                <a class="underlineHover" href="#">Forgot Password?</a>
+{
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="text" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a href="#" class="text-info">Register here</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+}
+
+   
 </body>
-</html>
-<script>
-    function LogInButonu()
-    {
-        debugger;
-        $.ajax({
-            type: 'Get',
-            dataType: 'html',
-            url: '@Url.Action("UserAndPasswordControl", "Login")',
-            //data: { userName: loginName, password: passwordName },  umut yap
-            data: { },
-            success: function () {
-                debugger;
-                alert("Conrollera gitti.");
-
-            },
-            error: function (ex) {
-                debugger;
-                alert("Conrollera gitmedi.");
-            }
-        });
-    }
-
-</script>
-
