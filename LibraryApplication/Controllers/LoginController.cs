@@ -25,6 +25,7 @@ namespace LibraryApplication.Controllers
         {
             //home sayfasının içerisi tasarlancak home.cshtml sayfasında kod yaz tasarla
 
+
             return View("~/Views/Home/Home.cshtml");
         }
 
