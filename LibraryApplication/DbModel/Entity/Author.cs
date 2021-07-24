@@ -11,6 +11,7 @@ namespace LibraryApplication.DbModel.Entity
       
         [Key]
         public int Id { get; set; }
+
         [StringLength(100)]
         public string FirstName { get; set; }
         [StringLength(100)]
