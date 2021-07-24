@@ -12,7 +12,7 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        FırstName = c.String(maxLength: 100),
+                        FirstName = c.String(maxLength: 100),
                         Lastname = c.String(maxLength: 100),
                     })
                 .PrimaryKey(t => t.Id);
@@ -57,7 +57,7 @@
                         Id = c.Int(nullable: false, identity: true),
                         Type = c.Int(nullable: false),
                         UserName = c.String(maxLength: 100),
-                        FırstName = c.String(maxLength: 100),
+                        FirstName = c.String(maxLength: 100),
                         LastName = c.String(maxLength: 100),
                         Telephone = c.String(maxLength: 100),
                         UserAddres = c.String(maxLength: 100),

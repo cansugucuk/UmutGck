@@ -15,7 +15,7 @@ namespace LibraryApplication.DbModel.Entity
         [StringLength(100)]
         public string UserName { get; set; }
         [StringLength(100)]
-        public string FırstName { get; set; }
+        public string FirstName { get; set; }
         [StringLength(100)]
         public string LastName { get; set; }
         [StringLength(100)]

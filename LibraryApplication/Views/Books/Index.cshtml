@@ -1,50 +1,58 @@
-﻿
+﻿@model IEnumerable<LibraryApplication.DbModel.Entity.Book>
+
 @{
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<h3>Kitap Tablosu</h3>
-<table class="table table-bordered">
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
     <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Kategori Id</th>
-        <th scope="col">Yazar Id</th>
-        <th scope="col">Kitap Adı</th>
-        <th scope="col">Raf Numarası</th>
-        <th scope="col">Sayfa Sayısı</th>
-        <th scope="col">Ekle</th>
-        <th scope="col">Sil</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShelfNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PageNumber)
+        </th>
+        <th></th>
     </tr>
 
-<tbody>
+@foreach (var item in Model) {
     <tr>
-        <th scope="row">1</th>
-
-        <td>1</td>
-        <td>1</td>
-        <td>AŞk Yolları</td>
-        <td>5</td>
-        <td>128</td>
-        
-        
-        <td><button class="btn btn-success">Tıkla </td>
-        <td><button class="btn btn-danger">Tıkla</td>
-
+        <td>
+            @Html.DisplayFor(modelItem => item.Author.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShelfNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PageNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
     </tr>
-    <tr>
-        <th scope="row">2</th>
+}
 
-        <td>3</td>
-        <td>3</td>
-        <td>Kara Orman</td>
-        <td>Gücük</td>
-        <td>Gücük</td>
-        
-        <td><button class="btn btn-success">Tıkla </td>
-        <td><button class="btn btn-danger">Tıkla </td>
-
-    </tr>
-
-</tbody>
 </table>
-<button class="btn-warning">Güncelle</button>

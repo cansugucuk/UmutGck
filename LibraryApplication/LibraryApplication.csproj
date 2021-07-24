@@ -284,10 +284,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Books\Contact.cshtml" />
-    <Content Include="Views\Books\Books.cshtml" />
-    <Content Include="Views\Books\About.cshtml" />
-    <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\CategoryTable.cshtml" />
     <Content Include="Views\Category\GetCategoryList.cshtml" />
@@ -297,6 +293,11 @@
     <Content Include="Views\Borrows\Details.cshtml" />
     <Content Include="Views\Borrows\Edit.cshtml" />
     <Content Include="Views\Borrows\Index.cshtml" />
+    <Content Include="Views\Books\Create.cshtml" />
+    <Content Include="Views\Books\Delete.cshtml" />
+    <Content Include="Views\Books\Details.cshtml" />
+    <Content Include="Views\Books\Edit.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
