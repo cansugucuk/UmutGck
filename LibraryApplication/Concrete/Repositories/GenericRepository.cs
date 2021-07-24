@@ -5,12 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Linq.Expressions;
 using System.Data.Entity;
+using LibraryApplication.Concrete.Repositories;
 
 namespace LibraryApplication.Concrete.Repositories
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-        Context c = new Context();
+        DataBaseContext c = new DataBaseContext();
         DbSet<T> _object;
 
         public GenericRepository()

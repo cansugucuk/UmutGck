@@ -11,7 +11,7 @@ namespace LibraryApplication.Controllers
         public ActionResult Home()
         {
 
-            return View();
+            return View("~/Views/Home/Home.cshtml");
         }
         public ActionResult Index()
         {
@@ -30,6 +30,8 @@ namespace LibraryApplication.Controllers
 
             return View();
         }
+
+      
 
     }
 }

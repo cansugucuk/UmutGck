@@ -4,9 +4,9 @@ using System;
 
 namespace LibraryApplication.Concrete.Repositories
 {
-    internal class DataBaseContext
-    {
-        public class DatabaseContext : DbContext
+    //public class DataBaseContext
+    //{
+        public class DataBaseContext : DbContext
         {
             protected override void OnModelCreating(DbModelBuilder modelBuilder)
             {
@@ -16,20 +16,25 @@ namespace LibraryApplication.Concrete.Repositories
                 modelBuilder.Entity<Borrow>().HasRequired<Book>(a => a.Book).WithMany(t => t.Borrows).HasForeignKey(u => u.BookId);
                 modelBuilder.Entity<Borrow>().HasRequired<User>(a => a.User).WithMany(t => t.Borrows).HasForeignKey(u => u.UserId);
             }
-            public DatabaseContext() : base("name = LibraryContextDb")
+            public DataBaseContext() : base("name = LibraryContextDb")
             {
                 //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DatabaseContext, LibraryApplication.Migrations.Configuration>("LibraryContextDb"));
             }
-            public virtual DbSet<Author> Authors { get; set; }
-            public virtual DbSet<Book> Books { get; set; }
-            public virtual DbSet<Borrow> Borrows { get; set; }
-            public virtual DbSet<Category> Categories { get; set; }
-            public virtual DbSet<User> Users { get; set; }
+            public  DbSet<Author> Authors { get; set; }
+            public  DbSet<Book> Books { get; set; }
+            public  DbSet<Borrow> Borrows { get; set; }
+            public  DbSet<Category> Categories { get; set; }
+            public  DbSet<User> Users { get; set; }
         }
 
-        internal void SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
-    }
+        //internal DbSet<T> Set<T>()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //internal void SaveChanges()
+        //{
+        //    throw new NotImplementedException();
+        //}
+    //}
 }

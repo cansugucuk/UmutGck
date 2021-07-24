@@ -8,14 +8,9 @@ namespace LibraryApplication.Controllers
 {
     public class BooksController : Controller
     {
-        public ActionResult Home()
-        {
-
-            return View();
-        }
         public ActionResult Index()
         {
-            return View();
+            return View(); //views/book/index.cshmtl
         }
         
         public ActionResult About()
