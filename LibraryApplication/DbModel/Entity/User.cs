@@ -8,10 +8,7 @@ namespace LibraryApplication.DbModel.Entity
 {
     public class User
     {
-        public User()
-        {
-            this.Borrows = new List<Borrow>();
-        }
+       
         [Key]
         public int Id { get; set; }
         public int Type { get; set; }

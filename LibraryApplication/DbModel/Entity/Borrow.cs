@@ -14,7 +14,6 @@ namespace LibraryApplication.DbModel.Entity
         public int BookId { get; set; }
         public DateTime StartingDate { get; set; }
         public DateTime EndDate { get; set; }
-
         public virtual Book Book { get; set; }
         public virtual User User { get; set; }
 

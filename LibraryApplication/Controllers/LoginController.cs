@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LibraryApplication.DbModel.Context;
+using LibraryApplication.Models.Login;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,12 +23,20 @@ namespace LibraryApplication.Controllers
 
         //kodlarım 
         [HttpGet]
-        public ActionResult LoginGiris()
+        public ActionResult LoginGiris(LoginViewModel model)
         {
-            //home sayfasının içerisi tasarlancak home.cshtml sayfasında kod yaz tasarla
+            DatabaseContext dbContext = new DatabaseContext();
 
-
-            return View("~/Views/Home/Home.cshtml");
+            var user = dbContext.Users.FirstOrDefault(p=>p.UserName == model.UserName && p.Password == model.Password);
+            if (user == null)
+            {
+                return View();
+            }
+            else
+            {
+                Session["LoginUser"] = user;
+                return RedirectToAction("Index", "Home");
+            }
         }
 
     }

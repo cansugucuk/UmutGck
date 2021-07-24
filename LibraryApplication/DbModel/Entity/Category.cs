@@ -8,10 +8,7 @@ namespace LibraryApplication.DbModel.Entity
 {
     public class Category
     {
-        public Category()
-        {
-            this.Books = new List<Book>();
-        }
+       
         [Key]
         public int Id { get; set; }
         [StringLength(100)]
