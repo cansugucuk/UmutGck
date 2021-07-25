@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LibraryApplication.Concrete.Repositories;
 using LibraryApplication.DbModel.Entity;
+using LibraryApplication.Models;
 
 namespace LibraryApplication.Controllers
 {
@@ -30,11 +31,22 @@ namespace LibraryApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Book book = db.Books.Find(id);
-            if (book == null)
+            var bookVm = new BookViewModel();
+            bookVm.Id = book.Id;
+            bookVm.CategoryId = book.CategoryId;
+            bookVm.AuthorId = book.AuthorId;
+            bookVm.BookName = book.BookName;      
+            bookVm.PageNumber = book.PageNumber;
+            bookVm.ShelfNumber = book.ShelfNumber;
+            bookVm.Category = book.Category;
+            bookVm.Author = book.Author;
+
+
+            if (bookVm == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(bookVm);
         }
 
         // GET: Books/Create
@@ -61,7 +73,17 @@ namespace LibraryApplication.Controllers
 
             ViewBag.AuthorId = new SelectList(db.Authors, "Id", "FirstName", book.AuthorId);
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", book.CategoryId);
-            return View(book);
+            var bookVm = new BookViewModel();
+            bookVm.Id = book.Id;
+            bookVm.CategoryId = book.CategoryId;
+            bookVm.AuthorId = book.AuthorId;
+            bookVm.BookName = book.BookName;
+            bookVm.PageNumber = book.PageNumber;
+            bookVm.ShelfNumber = book.ShelfNumber;
+            bookVm.Category = book.Category;
+            bookVm.Author = book.Author;
+
+            return View(bookVm);
         }
 
         // GET: Books/Edit/5
@@ -72,13 +94,23 @@ namespace LibraryApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Book book = db.Books.Find(id);
-            if (book == null)
+            var bookVm = new BookViewModel();
+            bookVm.Id = book.Id;
+            bookVm.CategoryId = book.CategoryId;
+            bookVm.AuthorId = book.AuthorId;
+            bookVm.BookName = book.BookName;
+            bookVm.PageNumber = book.PageNumber;
+            bookVm.ShelfNumber = book.ShelfNumber;
+            bookVm.Category = book.Category;
+            bookVm.Author = book.Author;
+
+            if (bookVm == null)
             {
                 return HttpNotFound();
             }
             ViewBag.AuthorId = new SelectList(db.Authors, "Id", "FirstName", book.AuthorId);
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", book.CategoryId);
-            return View(book);
+            return View(bookVm);
         }
 
         // POST: Books/Edit/5
@@ -96,7 +128,18 @@ namespace LibraryApplication.Controllers
             }
             ViewBag.AuthorId = new SelectList(db.Authors, "Id", "FirstName", book.AuthorId);
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "CategoryName", book.CategoryId);
-            return View(book);
+
+            var bookVm = new BookViewModel();
+            bookVm.Id = book.Id;
+            bookVm.CategoryId = book.CategoryId;
+            bookVm.AuthorId = book.AuthorId;
+            bookVm.BookName = book.BookName;
+            bookVm.PageNumber = book.PageNumber;
+            bookVm.ShelfNumber = book.ShelfNumber;
+            bookVm.Category = book.Category;
+            bookVm.Author = book.Author;
+
+            return View(bookVm);
         }
 
         // GET: Books/Delete/5
@@ -107,11 +150,23 @@ namespace LibraryApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Book book = db.Books.Find(id);
-            if (book == null)
+
+            var bookVm = new BookViewModel();
+            bookVm.Id = book.Id;
+            bookVm.CategoryId = book.CategoryId;
+            bookVm.AuthorId = book.AuthorId;
+            bookVm.BookName = book.BookName;
+            bookVm.PageNumber = book.PageNumber;
+            bookVm.ShelfNumber = book.ShelfNumber;
+            bookVm.Category = book.Category;
+            bookVm.Author = book.Author;
+
+
+            if (bookVm == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(bookVm);
         }
 
         // POST: Books/Delete/5
