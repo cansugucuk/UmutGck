@@ -10,6 +10,7 @@ namespace LibraryApplication.DbModel.Entity
     {
        
         [Key]
+        [Display(Name = "Kullanıcı Id")]
         public int Id { get; set; }
 
         [Display(Name = "Tip")]
@@ -32,7 +33,7 @@ namespace LibraryApplication.DbModel.Entity
         public string Telephone { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Kullanıcı Adres")]
+        [Display(Name = "Kullanıcı Adresi")]
         public string UserAddres { get; set; }
 
         [StringLength(100)]

@@ -10,8 +10,11 @@ namespace LibraryApplication.DbModel.Entity
     {
        
         [Key]
+        [Display(Name = "Kullanıcı Id")]
         public int Id { get; set; }
+
         [StringLength(100)]
+        [Display(Name = "Kategori Adı")]
         public string CategoryName { get; set; }
         public virtual ICollection<Book> Books { get; set; }
     }

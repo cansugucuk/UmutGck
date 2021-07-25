@@ -9,6 +9,8 @@ namespace LibraryApplication.DbModel.Entity
     public class About
     {
         [Key]
+
+        [Display(Name = "YazarId")]
         public int AboutId { get; set; }
         [StringLength(1000)]
         public string AboutDetails1 { get; set; }

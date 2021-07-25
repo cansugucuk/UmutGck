@@ -13,8 +13,11 @@ namespace LibraryApplication.DbModel.Entity
         public int Id { get; set; }
 
         [StringLength(100)]
+        [Display(Name = "Ad")]
         public string FirstName { get; set; }
+
         [StringLength(100)]
+        [Display(Name = "Soyad")]
         public string Lastname { get; set; }
 
         public ICollection<Book> Books { get; set; }
