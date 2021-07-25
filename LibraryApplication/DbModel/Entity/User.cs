@@ -37,7 +37,7 @@ namespace LibraryApplication.DbModel.Entity
         public string UserAddres { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "E Posta")]
+        [Display(Name = "E-Posta")]
         public string Email { get; set; }
         [Display(Name = "Şifre")]
         public string Password { get; set; }
