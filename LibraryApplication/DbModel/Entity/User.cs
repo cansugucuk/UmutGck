@@ -14,7 +14,7 @@ namespace LibraryApplication.DbModel.Entity
         public int Id { get; set; }
 
         [Display(Name = "Tip")]
-        public int Type { get; set; }
+        public int? Type { get; set; }
 
         [StringLength(100)]
         [Display(Name = "Kullanıcı Adı")]
