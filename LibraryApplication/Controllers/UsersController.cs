@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LibraryApplication.Concrete.Repositories;
 using LibraryApplication.DbModel.Entity;
+using LibraryApplication.Models;
 
 namespace LibraryApplication.Controllers
 {
@@ -18,6 +19,7 @@ namespace LibraryApplication.Controllers
         // GET: Users
         public ActionResult Index()
         {
+            var userList = db.Users.ToList();
             return View(db.Users.ToList());
         }
 
@@ -29,11 +31,22 @@ namespace LibraryApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             User user = db.Users.Find(id);
-            if (user == null)
+            var userVM = new UserViewModel();
+            userVM.Id = user.Id;
+            userVM.Type = user.Type;
+            userVM.UserName = user.UserName;
+            userVM.FirstName = user.FirstName;
+            userVM.LastName = user.LastName;
+            userVM.Telephone = user.Telephone;
+            userVM.UserAddres = user.UserAddres;
+            userVM.Email = user.Email;
+            userVM.Password = user.Password;
+
+            if (userVM == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(userVM);
         }
 
         // GET: Users/Create
