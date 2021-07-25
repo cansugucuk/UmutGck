@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LibraryApplication.Concrete.Repositories;
 using LibraryApplication.DbModel.Entity;
+using LibraryApplication.Models;
 
 namespace LibraryApplication.Controllers
 {
@@ -19,6 +20,7 @@ namespace LibraryApplication.Controllers
         public ActionResult Index()
         {
             var borrows = db.Borrows.Include(b => b.Book).Include(b => b.User);
+
             return View(borrows.ToList());
         }
 
@@ -30,11 +32,22 @@ namespace LibraryApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Borrow borrow = db.Borrows.Find(id);
-            if (borrow == null)
+
+            var borrowVm = new BorrowViewModel();
+            borrowVm.Id = borrow.Id;
+            borrowVm.UserId = borrow.UserId;
+            borrowVm.BookId = borrow.BookId;
+            borrowVm.StartingDate = borrow.StartingDate;
+            borrowVm.EndDate = borrow.EndDate;
+            borrowVm.Book = borrow.Book;
+            borrowVm.User = borrow.User;
+
+
+            if (borrowVm == null)
             {
                 return HttpNotFound();
             }
-            return View(borrow);
+            return View(borrowVm);
         }
 
         // GET: Borrows/Create
@@ -61,7 +74,17 @@ namespace LibraryApplication.Controllers
 
             ViewBag.BookId = new SelectList(db.Books, "Id", "BookName", borrow.BookId);
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserName", borrow.UserId);
-            return View(borrow);
+
+            var borrowVm = new BorrowViewModel();
+            borrowVm.Id = borrow.Id;
+            borrowVm.UserId = borrow.UserId;
+            borrowVm.BookId = borrow.BookId;
+            borrowVm.StartingDate = borrow.StartingDate;
+            borrowVm.EndDate = borrow.EndDate;
+            borrowVm.Book = borrow.Book;
+            borrowVm.User = borrow.User;
+
+            return View(borrowVm);
         }
 
         // GET: Borrows/Edit/5
@@ -78,7 +101,17 @@ namespace LibraryApplication.Controllers
             }
             ViewBag.BookId = new SelectList(db.Books, "Id", "BookName", borrow.BookId);
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserName", borrow.UserId);
-            return View(borrow);
+
+            var borrowVm = new BorrowViewModel();
+            borrowVm.Id = borrow.Id;
+            borrowVm.UserId = borrow.UserId;
+            borrowVm.BookId = borrow.BookId;
+            borrowVm.StartingDate = borrow.StartingDate;
+            borrowVm.EndDate = borrow.EndDate;
+            borrowVm.Book = borrow.Book;
+            borrowVm.User = borrow.User;
+
+            return View(borrowVm);
         }
 
         // POST: Borrows/Edit/5
@@ -96,7 +129,17 @@ namespace LibraryApplication.Controllers
             }
             ViewBag.BookId = new SelectList(db.Books, "Id", "BookName", borrow.BookId);
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserName", borrow.UserId);
-            return View(borrow);
+
+            var borrowVm = new BorrowViewModel();
+            borrowVm.Id = borrow.Id;
+            borrowVm.UserId = borrow.UserId;
+            borrowVm.BookId = borrow.BookId;
+            borrowVm.StartingDate = borrow.StartingDate;
+            borrowVm.EndDate = borrow.EndDate;
+            borrowVm.Book = borrow.Book;
+            borrowVm.User = borrow.User;
+
+            return View(borrowVm);
         }
 
         // GET: Borrows/Delete/5
@@ -107,11 +150,21 @@ namespace LibraryApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Borrow borrow = db.Borrows.Find(id);
-            if (borrow == null)
+
+            var borrowVm = new BorrowViewModel();
+            borrowVm.Id = borrow.Id;
+            borrowVm.UserId = borrow.UserId;
+            borrowVm.BookId = borrow.BookId;
+            borrowVm.StartingDate = borrow.StartingDate;
+            borrowVm.EndDate = borrow.EndDate;
+            borrowVm.Book = borrow.Book;
+            borrowVm.User = borrow.User;
+
+            if (borrowVm == null)
             {
                 return HttpNotFound();
             }
-            return View(borrow);
+            return View(borrowVm);
         }
 
         // POST: Borrows/Delete/5

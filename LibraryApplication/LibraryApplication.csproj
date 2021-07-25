@@ -229,6 +229,7 @@
       <DependentUpon>202107071246493_MigrationForRoleInEmp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BorrowViewModel.cs" />
     <Compile Include="Models\Login\LoginViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Proces\CategoryManager.cs" />

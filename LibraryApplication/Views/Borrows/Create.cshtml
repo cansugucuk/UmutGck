@@ -1,4 +1,4 @@
-﻿@model LibraryApplication.DbModel.Entity.Borrow
+﻿@model LibraryApplication.Models.BorrowViewModel
 
 @{
     ViewBag.Title = "Yeni Kayıt";
@@ -34,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StartingDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(x => x.StartingDate, "{0:yyyy-MM-dd}", new { @class = "dateInput", @placeholder = "plz input date" })
+                @Html.TextBoxFor(x => x.StartingDate, "{0:yyyy-MM-dd}", new { @class = "dateInput", @placeholder = "Tarih Giriniz (yyyy/aa/gg) " })
                 @Html.ValidationMessageFor(model => model.StartingDate, "", new { @class = "text-danger" })
 
              </div>
@@ -44,7 +44,7 @@
             @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.TextBoxFor(x => x.EndDate, "{0:yyyy-MM-dd}", new { @class = "dateInput", @placeholder = "plz input date" })
+                @Html.TextBoxFor(x => x.EndDate, "{0:yyyy-MM-dd}", new { @class = "dateInput", @placeholder = "Tarih Giriniz (yyyy/aa/gg)" })
 
 
                 @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
