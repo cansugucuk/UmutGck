@@ -53,11 +53,12 @@ body {
                                 <input type="text" name="Password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Giriş">
+                                
+                                <input type="button" value="Giriş Yap" onclick="location.href='@Url.Action("Home", "Home")'" />
+
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="#" class="text-info">Register here</a>
+                                <input type="button" value="Kayıt Ol" onclick="location.href='@Url.Action("Create", "Users")'" />
                             </div>
                             <div class="spinner-border text-muted"></div>
                             <div class="spinner-border text-primary"></div>
