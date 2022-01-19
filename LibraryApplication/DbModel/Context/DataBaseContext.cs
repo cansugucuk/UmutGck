@@ -26,5 +26,10 @@ namespace LibraryApplication.DbModel.Context
         public virtual DbSet<Borrow> Borrows { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Lesson> Lessons { get; set; }
+        public virtual DbSet<Statu> Status { get; set; }
+        public virtual DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<WorkType> WorkTypes { get; set; }
+        public virtual DbSet<Admin> Admins { get; set; }
     }
 }

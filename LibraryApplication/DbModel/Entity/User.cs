@@ -22,7 +22,7 @@ namespace LibraryApplication.DbModel.Entity
 
         [StringLength(100)]
         [Display(Name = "Adı")]
-        public string FirstName { get; set; }
+        public string FırstName { get; set; }
 
         [StringLength(100)]
         [Display(Name = "Soyadı")]

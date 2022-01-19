@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <!--<Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />-->
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -207,6 +208,7 @@
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\DataBaseContext.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\BorrowsController.cs" />
@@ -214,6 +216,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\UserTypesController.cs" />
     <Compile Include="DbModel\Context\DataBaseContext.cs" />
     <Compile Include="DbModel\Entity\About.cs" />
     <Compile Include="DbModel\Entity\Author.cs" />
@@ -221,13 +224,43 @@
     <Compile Include="DbModel\Entity\Borrow.cs" />
     <Compile Include="DbModel\Entity\Category.cs" />
     <Compile Include="DbModel\Entity\Contact.cs" />
+    <Compile Include="DbModel\Entity\Admin.cs" />
+    <Compile Include="DbModel\Entity\WorkType.cs" />
+    <Compile Include="DbModel\Entity\UserType.cs" />
+    <Compile Include="DbModel\Entity\Statu.cs" />
+    <Compile Include="DbModel\Entity\Lesson.cs" />
     <Compile Include="DbModel\Entity\User.cs" />
+    <Compile Include="Filter\AuthFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202107071246493_MigrationForRoleInEmp.cs" />
-    <Compile Include="Migrations\202107071246493_MigrationForRoleInEmp.designer.cs">
+    <Compile Include="Migrations\202107071246493_MigrationForRoleInEmp.Designer.cs">
       <DependentUpon>202107071246493_MigrationForRoleInEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201190950287_Lessons.cs" />
+    <Compile Include="Migrations\202201190950287_Lessons.Designer.cs">
+      <DependentUpon>202201190950287_Lessons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201190952532_LessonsIki.cs" />
+    <Compile Include="Migrations\202201190952532_LessonsIki.Designer.cs">
+      <DependentUpon>202201190952532_LessonsIki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201190955524_Statu.cs" />
+    <Compile Include="Migrations\202201190955524_Statu.Designer.cs">
+      <DependentUpon>202201190955524_Statu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201191003131_UserType.cs" />
+    <Compile Include="Migrations\202201191003131_UserType.Designer.cs">
+      <DependentUpon>202201191003131_UserType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201191127560_NameBugFix.cs" />
+    <Compile Include="Migrations\202201191127560_NameBugFix.Designer.cs">
+      <DependentUpon>202201191127560_NameBugFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201191151455_Admin.cs" />
+    <Compile Include="Migrations\202201191151455_Admin.Designer.cs">
+      <DependentUpon>202201191151455_Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AuthorViewModel.cs" />
@@ -235,7 +268,6 @@
     <Compile Include="Models\BorrowViewModel.cs" />
     <Compile Include="Models\Login\LoginViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
-    <Compile Include="Proces\CategoryManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -309,19 +341,40 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Authors\Create.cshtml" />
-    <Content Include="Views\Authors\Delete.cshtml" />
-    <Content Include="Views\Authors\Details.cshtml" />
-    <Content Include="Views\Authors\Edit.cshtml" />
-    <Content Include="Views\Authors\Index.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\LessonViewModels\Create.cshtml" />
+    <Content Include="Views\LessonViewModels\Delete.cshtml" />
+    <Content Include="Views\LessonViewModels\Details.cshtml" />
+    <Content Include="Views\LessonViewModels\Edit.cshtml" />
+    <Content Include="Views\LessonViewModels\Index.cshtml" />
+    <Content Include="Views\tb_Lesson\Create.cshtml" />
+    <Content Include="Views\tb_Lesson\Delete.cshtml" />
+    <Content Include="Views\tb_Lesson\Details.cshtml" />
+    <Content Include="Views\tb_Lesson\Edit.cshtml" />
+    <Content Include="Views\tb_Lesson\Index.cshtml" />
+    <Content Include="Views\Authors\Create.cshtml" />
+    <Content Include="Views\Authors\Delete.cshtml" />
+    <Content Include="Views\Authors\Details.cshtml" />
+    <Content Include="Views\Authors\Edit.cshtml" />
+    <Content Include="Views\Authors\Index.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\UserTypes\Create.cshtml" />
+    <Content Include="Views\UserTypes\Delete.cshtml" />
+    <Content Include="Views\UserTypes\Details.cshtml" />
+    <Content Include="Views\UserTypes\Edit.cshtml" />
+    <Content Include="Views\UserTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Proces\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -332,12 +385,30 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Migrations\202107071246493_MigrationForRoleInEmp.resx">
       <DependentUpon>202107071246493_MigrationForRoleInEmp.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <EmbeddedResource Include="Migrations\202201190950287_Lessons.resx">
+      <DependentUpon>202201190950287_Lessons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201190952532_LessonsIki.resx">
+      <DependentUpon>202201190952532_LessonsIki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201190955524_Statu.resx">
+      <DependentUpon>202201190955524_Statu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201191003131_UserType.resx">
+      <DependentUpon>202201191003131_UserType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201191127560_NameBugFix.resx">
+      <DependentUpon>202201191127560_NameBugFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201191151455_Admin.resx">
+      <DependentUpon>202201191151455_Admin.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -373,10 +444,10 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <!--<Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />-->
+    <!--<Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />-->
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!--<Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />-->
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
