@@ -30,7 +30,7 @@ namespace LibraryApplication.Controllers
             var user = dbContext.Admins.FirstOrDefault(p=>p.Username == model.Username && p.Password == model.Password);
             if (user == null)
             {
-                return View();
+                return View("~/Views/Login/Error.cshtml");
             }
             else
             {

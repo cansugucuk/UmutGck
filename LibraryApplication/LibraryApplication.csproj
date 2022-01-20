@@ -306,6 +306,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Pictures\error401.png" />
     <Content Include="Pictures\SliderResim.jpg" />
     <Content Include="Pictures\SliderResim0.jpg" />
     <Content Include="Pictures\SliderResim2.jpg" />
@@ -343,9 +344,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Login\UserAndPasswordControl.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -404,6 +403,8 @@
     <Content Include="Views\TeacherLessons\Details.cshtml" />
     <Content Include="Views\TeacherLessons\Edit.cshtml" />
     <Content Include="Views\TeacherLessons\Index.cshtml" />
+    <Content Include="Views\Login\Error.cshtml" />
+    <Content Include="Views\Login\MultiLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
