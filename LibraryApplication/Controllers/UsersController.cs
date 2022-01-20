@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using LibraryApplication.Concrete.Repositories;
+using LibraryApplication.DbModel.Context;
 using LibraryApplication.DbModel.Entity;
 using LibraryApplication.Models;
 
@@ -35,7 +31,7 @@ namespace LibraryApplication.Controllers
             userVM.Id = user.Id;
             userVM.Type = user.Type;
             userVM.UserName = user.UserName;
-            userVM.FirstName = user.FırstName;
+            userVM.FirstName = "test2";
             userVM.LastName = user.LastName;
             userVM.Telephone = user.Telephone;
             userVM.UserAddres = user.UserAddres;
@@ -64,6 +60,7 @@ namespace LibraryApplication.Controllers
         {
             if (ModelState.IsValid)
             {
+                user.FırstName = "test";
                 db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");

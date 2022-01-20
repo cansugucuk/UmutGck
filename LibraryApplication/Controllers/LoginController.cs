@@ -1,9 +1,7 @@
 ﻿using LibraryApplication.DbModel.Context;
+using LibraryApplication.DbModel.Entity;
 using LibraryApplication.Models.Login;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 
@@ -22,12 +20,14 @@ namespace LibraryApplication.Controllers
 
 
         //kodlarım 
-        [HttpGet]
-        public ActionResult LoginGiris(LoginViewModel model)
+        //[HttpGet]
+        //public ActionResult Create([Bind(Include = "UserName,Password")] UserType userType)
+        [HttpPost]
+        public ActionResult Login([Bind(Include = "Username,Password")]Admin model)
         {
-            DatabaseContext dbContext = new DatabaseContext();
+            DataBaseContext dbContext = new DataBaseContext();
 
-            var user = dbContext.Users.FirstOrDefault(p=>p.UserName == model.UserName && p.Password == model.Password);
+            var user = dbContext.Admins.FirstOrDefault(p=>p.Username == model.Username && p.Password == model.Password);
             if (user == null)
             {
                 return View();
@@ -38,6 +38,23 @@ namespace LibraryApplication.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
+        //[HttpGet]
+        //public ActionResult LoginGiris([Bind(Include = "UserName,Password")]User model)
+        //{
+        //    DataBaseContext dbContext = new DataBaseContext();
+
+        //    var user = dbContext.Users.FirstOrDefault(p => p.UserName == model.UserName && p.Password == model.Password);
+        //    if (user == null)
+        //    {
+        //        return View();
+        //    }
+        //    else
+        //    {
+        //        Session["LoginUser"] = user;
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //}
 
     }
 }

@@ -6,6 +6,7 @@ using System.Web;
 using System.Linq.Expressions;
 using System.Data.Entity;
 using LibraryApplication.Concrete.Repositories;
+using LibraryApplication.DbModel.Context;
 
 namespace LibraryApplication.Concrete.Repositories
 {

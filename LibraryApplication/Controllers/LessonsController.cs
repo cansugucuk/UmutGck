@@ -1,113 +1,117 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using LibraryApplication.DbModel.Context;
 using LibraryApplication.DbModel.Entity;
 
 namespace LibraryApplication.Controllers
 {
-    public class AuthorsController : Controller
+    public class LessonsController : Controller
     {
         private DataBaseContext db = new DataBaseContext();
 
-        // GET: Authors
+        // GET: Lessons
         public ActionResult Index()
         {
-            return View(db.Authors.ToList());
+            return View(db.Lessons.ToList());
         }
 
-        // GET: Authors/Details/5
+        // GET: Lessons/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Author author = db.Authors.Find(id);
-            if (author == null)
+            Lesson lesson = db.Lessons.Find(id);
+            if (lesson == null)
             {
                 return HttpNotFound();
             }
-            return View(author);
+            return View(lesson);
         }
 
-        // GET: Authors/Create
+        // GET: Lessons/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Authors/Create
+        // POST: Lessons/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,Lastname")] Author author)
+        public ActionResult Create([Bind(Include = "Id,Name")] Lesson lesson)
         {
             if (ModelState.IsValid)
             {
-                db.Authors.Add(author);
+                db.Lessons.Add(lesson);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(author);
+            return View(lesson);
         }
 
-        // GET: Authors/Edit/5
+        // GET: Lessons/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Author author = db.Authors.Find(id);
-            if (author == null)
+            Lesson lesson = db.Lessons.Find(id);
+            if (lesson == null)
             {
                 return HttpNotFound();
             }
-            return View(author);
+            return View(lesson);
         }
 
-        // POST: Authors/Edit/5
+        // POST: Lessons/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,Lastname")] Author author)
+        public ActionResult Edit([Bind(Include = "Id,Name")] Lesson lesson)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(author).State = EntityState.Modified;
+                db.Entry(lesson).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(author);
+            return View(lesson);
         }
 
-        // GET: Authors/Delete/5
+        // GET: Lessons/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Author author = db.Authors.Find(id);
-            if (author == null)
+            Lesson lesson = db.Lessons.Find(id);
+            if (lesson == null)
             {
                 return HttpNotFound();
             }
-            return View(author);
+            return View(lesson);
         }
 
-        // POST: Authors/Delete/5
+        // POST: Lessons/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Author author = db.Authors.Find(id);
-            db.Authors.Remove(author);
+            Lesson lesson = db.Lessons.Find(id);
+            db.Lessons.Remove(lesson);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

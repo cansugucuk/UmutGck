@@ -206,7 +206,6 @@
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryManager.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
-    <Compile Include="Concrete\Repositories\DataBaseContext.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\AuthorsController.cs" />
@@ -214,17 +213,30 @@
     <Compile Include="Controllers\BorrowsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LessonsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\TeacherLessonsController.cs" />
+    <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\UserTypesController.cs" />
     <Compile Include="DbModel\Context\DataBaseContext.cs" />
     <Compile Include="DbModel\Entity\About.cs" />
+    <Compile Include="DbModel\Entity\StudentLike.cs" />
+    <Compile Include="DbModel\Entity\StudentLesson.cs" />
+    <Compile Include="DbModel\Entity\StudentComplaint.cs" />
+    <Compile Include="DbModel\Entity\Student.cs" />
+    <Compile Include="DbModel\Entity\TeacherLike.cs" />
+    <Compile Include="DbModel\Entity\TeacherLesson.cs" />
+    <Compile Include="DbModel\Entity\TeacherComplaint.cs" />
+    <Compile Include="DbModel\Entity\Teacher.cs" />
     <Compile Include="DbModel\Entity\Author.cs" />
     <Compile Include="DbModel\Entity\Book.cs" />
     <Compile Include="DbModel\Entity\Borrow.cs" />
     <Compile Include="DbModel\Entity\Category.cs" />
     <Compile Include="DbModel\Entity\Contact.cs" />
     <Compile Include="DbModel\Entity\Admin.cs" />
+    <Compile Include="DbModel\Entity\Comment.cs" />
+    <Compile Include="DbModel\Entity\Country.cs" />
     <Compile Include="DbModel\Entity\WorkType.cs" />
     <Compile Include="DbModel\Entity\UserType.cs" />
     <Compile Include="DbModel\Entity\Statu.cs" />
@@ -261,6 +273,22 @@
     <Compile Include="Migrations\202201191151455_Admin.cs" />
     <Compile Include="Migrations\202201191151455_Admin.Designer.cs">
       <DependentUpon>202201191151455_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201192347091_Teacher.cs" />
+    <Compile Include="Migrations\202201192347091_Teacher.Designer.cs">
+      <DependentUpon>202201192347091_Teacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201192352450_Teacher2.cs" />
+    <Compile Include="Migrations\202201192352450_Teacher2.Designer.cs">
+      <DependentUpon>202201192352450_Teacher2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201200027524_Teacher3.cs" />
+    <Compile Include="Migrations\202201200027524_Teacher3.Designer.cs">
+      <DependentUpon>202201200027524_Teacher3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201200028328_IsActive.cs" />
+    <Compile Include="Migrations\202201200028328_IsActive.Designer.cs">
+      <DependentUpon>202201200028328_IsActive.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AuthorViewModel.cs" />
@@ -346,16 +374,6 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
-    <Content Include="Views\LessonViewModels\Create.cshtml" />
-    <Content Include="Views\LessonViewModels\Delete.cshtml" />
-    <Content Include="Views\LessonViewModels\Details.cshtml" />
-    <Content Include="Views\LessonViewModels\Edit.cshtml" />
-    <Content Include="Views\LessonViewModels\Index.cshtml" />
-    <Content Include="Views\tb_Lesson\Create.cshtml" />
-    <Content Include="Views\tb_Lesson\Delete.cshtml" />
-    <Content Include="Views\tb_Lesson\Details.cshtml" />
-    <Content Include="Views\tb_Lesson\Edit.cshtml" />
-    <Content Include="Views\tb_Lesson\Index.cshtml" />
     <Content Include="Views\Authors\Create.cshtml" />
     <Content Include="Views\Authors\Delete.cshtml" />
     <Content Include="Views\Authors\Details.cshtml" />
@@ -371,6 +389,21 @@
     <Content Include="Views\UserTypes\Details.cshtml" />
     <Content Include="Views\UserTypes\Edit.cshtml" />
     <Content Include="Views\UserTypes\Index.cshtml" />
+    <Content Include="Views\Teachers\Create.cshtml" />
+    <Content Include="Views\Teachers\Delete.cshtml" />
+    <Content Include="Views\Teachers\Details.cshtml" />
+    <Content Include="Views\Teachers\Edit.cshtml" />
+    <Content Include="Views\Teachers\Index.cshtml" />
+    <Content Include="Views\Lessons\Create.cshtml" />
+    <Content Include="Views\Lessons\Delete.cshtml" />
+    <Content Include="Views\Lessons\Details.cshtml" />
+    <Content Include="Views\Lessons\Edit.cshtml" />
+    <Content Include="Views\Lessons\Index.cshtml" />
+    <Content Include="Views\TeacherLessons\Create.cshtml" />
+    <Content Include="Views\TeacherLessons\Delete.cshtml" />
+    <Content Include="Views\TeacherLessons\Details.cshtml" />
+    <Content Include="Views\TeacherLessons\Edit.cshtml" />
+    <Content Include="Views\TeacherLessons\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -408,6 +441,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201191151455_Admin.resx">
       <DependentUpon>202201191151455_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201192347091_Teacher.resx">
+      <DependentUpon>202201192347091_Teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201192352450_Teacher2.resx">
+      <DependentUpon>202201192352450_Teacher2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201200027524_Teacher3.resx">
+      <DependentUpon>202201200027524_Teacher3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201200028328_IsActive.resx">
+      <DependentUpon>202201200028328_IsActive.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

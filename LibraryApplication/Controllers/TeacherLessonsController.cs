@@ -1,113 +1,126 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using LibraryApplication.DbModel.Context;
 using LibraryApplication.DbModel.Entity;
 
 namespace LibraryApplication.Controllers
 {
-    public class UserTypesController : Controller
+    public class TeacherLessonsController : Controller
     {
         private DataBaseContext db = new DataBaseContext();
 
-        // GET: UserTypes
+        // GET: TeacherLessons
         public ActionResult Index()
         {
-            return View(db.UserTypes.ToList());
+            var teacherLessons = db.TeacherLessons.Include(t => t.Lesson).Include(t => t.Teacher);
+            return View(teacherLessons.ToList());
         }
 
-        // GET: UserTypes/Details/5
+        // GET: TeacherLessons/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserType userType = db.UserTypes.Find(id);
-            if (userType == null)
+            TeacherLesson teacherLesson = db.TeacherLessons.Find(id);
+            if (teacherLesson == null)
             {
                 return HttpNotFound();
             }
-            return View(userType);
+            return View(teacherLesson);
         }
 
-        // GET: UserTypes/Create
+        // GET: TeacherLessons/Create
         public ActionResult Create()
         {
+            ViewBag.LessonId = new SelectList(db.Lessons, "Id", "Name");
+            ViewBag.TeacherId = new SelectList(db.Teachers, "Id", "Name");
             return View();
         }
 
-        // POST: UserTypes/Create
+        // POST: TeacherLessons/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] UserType userType)
+        public ActionResult Create([Bind(Include = "Id,TeacherId,LessonId,CreatedDate")] TeacherLesson teacherLesson)
         {
             if (ModelState.IsValid)
             {
-                db.UserTypes.Add(userType);
+                db.TeacherLessons.Add(teacherLesson);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(userType);
+            ViewBag.LessonId = new SelectList(db.Lessons, "Id", "Name", teacherLesson.LessonId);
+            ViewBag.TeacherId = new SelectList(db.Teachers, "Id", "Name", teacherLesson.TeacherId);
+            return View(teacherLesson);
         }
 
-        // GET: UserTypes/Edit/5
+        // GET: TeacherLessons/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserType userType = db.UserTypes.Find(id);
-            if (userType == null)
+            TeacherLesson teacherLesson = db.TeacherLessons.Find(id);
+            if (teacherLesson == null)
             {
                 return HttpNotFound();
             }
-            return View(userType);
+            ViewBag.LessonId = new SelectList(db.Lessons, "Id", "Name", teacherLesson.LessonId);
+            ViewBag.TeacherId = new SelectList(db.Teachers, "Id", "Name", teacherLesson.TeacherId);
+            return View(teacherLesson);
         }
 
-        // POST: UserTypes/Edit/5
+        // POST: TeacherLessons/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] UserType userType)
+        public ActionResult Edit([Bind(Include = "Id,TeacherId,LessonId,CreatedDate")] TeacherLesson teacherLesson)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(userType).State = EntityState.Modified;
+                db.Entry(teacherLesson).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(userType);
+            ViewBag.LessonId = new SelectList(db.Lessons, "Id", "Name", teacherLesson.LessonId);
+            ViewBag.TeacherId = new SelectList(db.Teachers, "Id", "Name", teacherLesson.TeacherId);
+            return View(teacherLesson);
         }
 
-        // GET: UserTypes/Delete/5
+        // GET: TeacherLessons/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserType userType = db.UserTypes.Find(id);
-            if (userType == null)
+            TeacherLesson teacherLesson = db.TeacherLessons.Find(id);
+            if (teacherLesson == null)
             {
                 return HttpNotFound();
             }
-            return View(userType);
+            return View(teacherLesson);
         }
 
-        // POST: UserTypes/Delete/5
+        // POST: TeacherLessons/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            UserType userType = db.UserTypes.Find(id);
-            db.UserTypes.Remove(userType);
+            TeacherLesson teacherLesson = db.TeacherLessons.Find(id);
+            db.TeacherLessons.Remove(teacherLesson);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

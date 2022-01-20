@@ -13,7 +13,7 @@ namespace LibraryApplication.Controllers
 {
     public class AdminsController : Controller
     {
-        private DatabaseContext db = new DatabaseContext();
+        private DataBaseContext db = new DataBaseContext();
 
         // GET: Admins
         public ActionResult Index()
