@@ -50,10 +50,11 @@ namespace LibraryApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Surname,PhoneNumber,Email,GradeNumber,Documents,Photo,Username,Password,Birthdate,CountryId,IsBlocked,ReasonBlocked,CreatedDate,IsActive,UserTypeId")] Student student)
+        public ActionResult Create([Bind(Include = "Id,Name,Surname,PhoneNumber,Email,GradeNumber,Username,Password,CountryId,UserTypeId")] Student student)
         {
             if (ModelState.IsValid)
             {
+                student.UserTypeId = 2;
                 db.Students.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -86,7 +87,7 @@ namespace LibraryApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Surname,PhoneNumber,Email,GradeNumber,Documents,Photo,Username,Password,Birthdate,CountryId,IsBlocked,ReasonBlocked,CreatedDate,IsActive,UserTypeId")] Student student)
+        public ActionResult Edit([Bind(Include = "Id,Name,Surname,PhoneNumber,Email,GradeNumber,Username,Password,CountryId,UserTypeId")] Student student)
         {
             if (ModelState.IsValid)
             {

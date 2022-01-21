@@ -49,10 +49,12 @@ namespace LibraryApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Username,Password,UserTypeId,Name,Surname,PhoneNumber,Email,CreatedDate")] Admin admin)
+        public ActionResult Create([Bind(Include = "Id,Username,Password,UserTypeId,Name,Surname,PhoneNumber,Email")] Admin admin)
         {
             if (ModelState.IsValid)
             {
+                admin.UserTypeId = 1;
+
                 db.Admins.Add(admin);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -83,7 +85,7 @@ namespace LibraryApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Username,Password,UserTypeId,Name,Surname,PhoneNumber,Email,CreatedDate")] Admin admin)
+        public ActionResult Edit([Bind(Include = "Id,Username,Password,UserTypeId,Name,Surname,PhoneNumber,Email")] Admin admin)
         {
             if (ModelState.IsValid)
             {

@@ -22,11 +22,18 @@ namespace LibraryApplication.DbModel.Entity
         [Display(Name = "Kullanıcı Tipi")]
         public int UserTypeId { get; set; }
 
+        [Display(Name = "İsim")]
         public string Name { get; set; }
+
+        [Display(Name = "Soyad")]
         public string Surname { get; set; }
+
+        [Display(Name = "Telefon Numarası")]
         public string PhoneNumber { get; set; }
+
+        [Display(Name = "Email")]
         public string Email { get; set; }
-        public DateTime CreatedDate { get; set; }
+        //public DateTime CreatedDate { get; set; }
 
         public virtual UserType UserType { get; set; }
 

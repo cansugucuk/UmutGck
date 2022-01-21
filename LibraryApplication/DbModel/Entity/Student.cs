@@ -10,29 +10,41 @@ namespace LibraryApplication.DbModel.Entity
     {
         [Key]
         public int Id { get; set; }
+        [Display(Name = "İsim")]
         public string Name { get; set; }
+
+        [Display(Name = "Soyad")]
         public string Surname { get; set; }
+
+        [Display(Name = "Telefon No")]
         public string PhoneNumber { get; set; }
+
+        [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Display(Name = "Sıınıf")]
         public int GradeNumber { get; set; }
-        public string Documents { get; set; }
-        public string Photo { get; set; }
+        //public string Documents { get; set; }
+        //public string Photo { get; set; }
 
         [Display(Name = "Kullanıcı Adı")]
         public string Username { get; set; }
 
         [Display(Name = "Şifre")]
         public string Password { get; set; }
-        public DateTime Birthdate { get; set; }
+        //public DateTime Birthdate { get; set; }
+
+        [Display(Name = "Şehir")]
         public int? CountryId { get; set; }
-        public bool IsBlocked { get; set; }
-        public string ReasonBlocked { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public bool IsActive { get; set; }
+        //public bool IsBlocked { get; set; }
+        //public string ReasonBlocked { get; set; }
+        //public DateTime CreatedDate { get; set; }
+        //public bool IsActive { get; set; }
 
         [Display(Name = "Kullanıcı Tipi")]
         public int UserTypeId { get; set; }
 
+        [Display(Name = "Şehir")]
         public virtual Country Country { get; set; }
         public virtual UserType UserType { get; set; }
 

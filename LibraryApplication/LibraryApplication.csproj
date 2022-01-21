@@ -207,9 +207,10 @@
     <Compile Include="Concrete\Repositories\CategoryManager.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\TeacherLoginController.cs" />
     <Compile Include="Controllers\StudentLoginController.cs" />
-    <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\BorrowsController.cs" />
@@ -218,7 +219,6 @@
     <Compile Include="Controllers\LessonsController.cs" />
     <Compile Include="Controllers\AdminLoginController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\TeacherLessonsController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -300,6 +300,10 @@
     <Compile Include="Migrations\202201210731224_PhotoFix.cs" />
     <Compile Include="Migrations\202201210731224_PhotoFix.Designer.cs">
       <DependentUpon>202201210731224_PhotoFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201211646093_Duzenleme.cs" />
+    <Compile Include="Migrations\202201211646093_Duzenleme.Designer.cs">
+      <DependentUpon>202201211646093_Duzenleme.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AuthorViewModel.cs" />
@@ -422,16 +426,6 @@
     <Content Include="Views\Authors\Details.cshtml" />
     <Content Include="Views\Authors\Edit.cshtml" />
     <Content Include="Views\Authors\Index.cshtml" />
-    <Content Include="Views\Admins\Create.cshtml" />
-    <Content Include="Views\Admins\Delete.cshtml" />
-    <Content Include="Views\Admins\Details.cshtml" />
-    <Content Include="Views\Admins\Edit.cshtml" />
-    <Content Include="Views\Admins\Index.cshtml" />
-    <Content Include="Views\Teachers\Create.cshtml" />
-    <Content Include="Views\Teachers\Delete.cshtml" />
-    <Content Include="Views\Teachers\Details.cshtml" />
-    <Content Include="Views\Teachers\Edit.cshtml" />
-    <Content Include="Views\Teachers\Index.cshtml" />
     <Content Include="Views\Lessons\Create.cshtml" />
     <Content Include="Views\Lessons\Delete.cshtml" />
     <Content Include="Views\Lessons\Details.cshtml" />
@@ -447,14 +441,24 @@
     <Content Include="Views\Login\AdminLogin\AdminLogin.cshtml" />
     <Content Include="Views\Login\TeacherLogin\TeacherLogin.cshtml" />
     <Content Include="Views\Login\StudentLogin\StudentLogin.cshtml" />
+    <Content Include="Views\Shared\Anasayfa.cshtml" />
+    <Content Include="Views\Shared\_TemplateLayout.cshtml" />
+    <Content Include="Views\Shared\_Anasayfa.cshtml" />
+    <Content Include="Views\Teachers\Create.cshtml" />
+    <Content Include="Views\Teachers\Delete.cshtml" />
+    <Content Include="Views\Teachers\Details.cshtml" />
+    <Content Include="Views\Teachers\Edit.cshtml" />
+    <Content Include="Views\Teachers\Index.cshtml" />
     <Content Include="Views\Students\Create.cshtml" />
     <Content Include="Views\Students\Delete.cshtml" />
     <Content Include="Views\Students\Details.cshtml" />
     <Content Include="Views\Students\Edit.cshtml" />
     <Content Include="Views\Students\Index.cshtml" />
-    <Content Include="Views\Shared\Anasayfa.cshtml" />
-    <Content Include="Views\Shared\_TemplateLayout.cshtml" />
-    <Content Include="Views\Shared\_Anasayfa.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -510,6 +514,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201210731224_PhotoFix.resx">
       <DependentUpon>202201210731224_PhotoFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201211646093_Duzenleme.resx">
+      <DependentUpon>202201211646093_Duzenleme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

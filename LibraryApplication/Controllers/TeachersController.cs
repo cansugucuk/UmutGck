@@ -51,10 +51,11 @@ namespace LibraryApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Surname,PhoneNumber,Email,OtherInformations,IBAN,ExperienceYear,Documents,Photo,Username,Password,Birthdate,University,WhatTeacher,About,YoutubeUrl,UserTypeId,CountryId,WorkTypeId,IsBlocked,ReasonBlocked,CreatedDate,IsActive")] Teacher teacher)
+        public ActionResult Create([Bind(Include = "Id,Name,Surname,PhoneNumber,Email,OtherInformations,IBAN,ExperienceYear,Username,Password,University,WhatTeacher,About,YoutubeUrl,UserTypeId,CountryId,WorkTypeId")] Teacher teacher)
         {
             if (ModelState.IsValid)
             {
+                teacher.UserTypeId = 3;
                 db.Teachers.Add(teacher);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -89,7 +90,7 @@ namespace LibraryApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Surname,PhoneNumber,Email,OtherInformations,IBAN,ExperienceYear,Documents,Photo,Username,Password,Birthdate,University,WhatTeacher,About,YoutubeUrl,UserTypeId,CountryId,WorkTypeId,IsBlocked,ReasonBlocked,CreatedDate,IsActive")] Teacher teacher)
+        public ActionResult Edit([Bind(Include = "Id,Name,Surname,PhoneNumber,Email,OtherInformations,IBAN,ExperienceYear,Username,Password,University,WhatTeacher,About,YoutubeUrl,UserTypeId,CountryId,WorkTypeId")] Teacher teacher)
         {
             if (ModelState.IsValid)
             {
