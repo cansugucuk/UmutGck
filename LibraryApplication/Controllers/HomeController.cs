@@ -22,7 +22,7 @@ namespace LibraryApplication.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View("~/Views/Shared/Anasayfa.cshtml");
         }
         public ActionResult About()
         {
