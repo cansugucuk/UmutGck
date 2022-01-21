@@ -222,7 +222,6 @@
     <Compile Include="Controllers\TeacherLessonsController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Controllers\UserTypesController.cs" />
     <Compile Include="DbModel\Context\DataBaseContext.cs" />
     <Compile Include="DbModel\Entity\About.cs" />
     <Compile Include="DbModel\Entity\StudentLike.cs" />
@@ -293,6 +292,14 @@
     <Compile Include="Migrations\202201200028328_IsActive.cs" />
     <Compile Include="Migrations\202201200028328_IsActive.Designer.cs">
       <DependentUpon>202201200028328_IsActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201210634027_image.cs" />
+    <Compile Include="Migrations\202201210634027_image.Designer.cs">
+      <DependentUpon>202201210634027_image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201210731224_PhotoFix.cs" />
+    <Compile Include="Migrations\202201210731224_PhotoFix.Designer.cs">
+      <DependentUpon>202201210731224_PhotoFix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AuthorViewModel.cs" />
@@ -420,11 +427,6 @@
     <Content Include="Views\Admins\Details.cshtml" />
     <Content Include="Views\Admins\Edit.cshtml" />
     <Content Include="Views\Admins\Index.cshtml" />
-    <Content Include="Views\UserTypes\Create.cshtml" />
-    <Content Include="Views\UserTypes\Delete.cshtml" />
-    <Content Include="Views\UserTypes\Details.cshtml" />
-    <Content Include="Views\UserTypes\Edit.cshtml" />
-    <Content Include="Views\UserTypes\Index.cshtml" />
     <Content Include="Views\Teachers\Create.cshtml" />
     <Content Include="Views\Teachers\Delete.cshtml" />
     <Content Include="Views\Teachers\Details.cshtml" />
@@ -451,6 +453,8 @@
     <Content Include="Views\Students\Edit.cshtml" />
     <Content Include="Views\Students\Index.cshtml" />
     <Content Include="Views\Shared\Anasayfa.cshtml" />
+    <Content Include="Views\Shared\_TemplateLayout.cshtml" />
+    <Content Include="Views\Shared\_Anasayfa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -500,6 +504,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201200028328_IsActive.resx">
       <DependentUpon>202201200028328_IsActive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201210634027_image.resx">
+      <DependentUpon>202201210634027_image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201210731224_PhotoFix.resx">
+      <DependentUpon>202201210731224_PhotoFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

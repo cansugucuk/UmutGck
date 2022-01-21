@@ -9,6 +9,7 @@ namespace LibraryApplication.DbModel.Context
 {
     public class DataBaseContext : DbContext
     {
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //Köprğlerimiz

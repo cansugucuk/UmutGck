@@ -5,30 +5,118 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<html>
+<head>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
+    <title> Özel Ders Sistemi</title>
+    <!--
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+    Known Template
+
+    https://templatemo.com/tm-516-known
+
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Content/css/owl.theme.default.min.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/Content/css/templatemo-style.css">
+
+    <style type="text/css">
+        .square {
+  position: relative;
+  width: 50%;
 }
 
-</table>
+.square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+    </style>
+</head>
+<body>
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    <section id="team">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12">
+                    <div class="section-title">
+                        <h2>Dersler <small></small></h2>
+                    </div>
+                </div>
+
+                @foreach (var item in Model)
+                {
+
+                    <div class="square">
+                        <div class="content">
+                            @Html.DisplayFor(modelItem => item.Name)
+                            !
+                        </div>
+                    </div>
+
+
+                    @*<div class="col-md-3 col-sm-6">
+                        <div class="team-thumb">
+                            <div class="team-image">
+                            </div>
+                            <div style="height:0;width:20%;padding-bottom:20%;background-color:red">
+                                <div>
+                                    <h3>
+                                        @Html.DisplayFor(modelItem => item.Name)
+
+                                    </h3>
+                                </div>
+
+                                <span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>*@
+                }
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SCRIPTS -->
+    <script src="~/Content/js/jquery.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/owl.carousel.min.js"></script>
+    <script src="~/Content/js/smoothscroll.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
