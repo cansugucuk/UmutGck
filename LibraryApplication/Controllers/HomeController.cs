@@ -13,6 +13,13 @@ namespace LibraryApplication.Controllers
 
             return View("~/Views/Home/Home.cshtml");
         }
+
+        public ActionResult Template()
+        {
+
+            return View("~/Views/Shared/Anasayfa.cshtml");
+        }
+
         public ActionResult Index()
         {
             return View();

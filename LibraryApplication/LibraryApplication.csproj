@@ -306,6 +306,34 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\owl.carousel.css" />
+    <Content Include="Content\css\owl.theme.default.min.css" />
+    <Content Include="Content\css\templatemo-style.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\author-image1.jpg" />
+    <Content Include="Content\images\author-image2.jpg" />
+    <Content Include="Content\images\author-image3.jpg" />
+    <Content Include="Content\images\author-image4.jpg" />
+    <Content Include="Content\images\contact-image.jpg" />
+    <Content Include="Content\images\courses-image1.jpg" />
+    <Content Include="Content\images\courses-image2.jpg" />
+    <Content Include="Content\images\courses-image3.jpg" />
+    <Content Include="Content\images\courses-image4.jpg" />
+    <Content Include="Content\images\courses-image5.jpg" />
+    <Content Include="Content\images\slider-image1.jpg" />
+    <Content Include="Content\images\slider-image2.jpg" />
+    <Content Include="Content\images\slider-image3.jpg" />
+    <Content Include="Content\images\tst-image1.jpg" />
+    <Content Include="Content\images\tst-image2.jpg" />
+    <Content Include="Content\images\tst-image3.jpg" />
+    <Content Include="Content\images\tst-image4.jpg" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\jquery.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\js\smoothscroll.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -323,6 +351,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="web\css\login.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -417,6 +450,7 @@
     <Content Include="Views\Students\Details.cshtml" />
     <Content Include="Views\Students\Edit.cshtml" />
     <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Shared\Anasayfa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
