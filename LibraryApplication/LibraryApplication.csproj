@@ -207,6 +207,8 @@
     <Compile Include="Concrete\Repositories\CategoryManager.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="Controllers\TeacherLoginController.cs" />
+    <Compile Include="Controllers\StudentLoginController.cs" />
     <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
@@ -214,7 +216,9 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LessonsController.cs" />
+    <Compile Include="Controllers\AdminLoginController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\TeacherLessonsController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -405,6 +409,14 @@
     <Content Include="Views\TeacherLessons\Index.cshtml" />
     <Content Include="Views\Login\Error.cshtml" />
     <Content Include="Views\Login\MultiLogin.cshtml" />
+    <Content Include="Views\Login\AdminLogin\AdminLogin.cshtml" />
+    <Content Include="Views\Login\TeacherLogin\TeacherLogin.cshtml" />
+    <Content Include="Views\Login\StudentLogin\StudentLogin.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

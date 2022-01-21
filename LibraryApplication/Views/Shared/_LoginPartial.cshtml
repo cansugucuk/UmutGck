@@ -19,6 +19,9 @@ else
 {
     <ul class="nav navbar-nav navbar-right">
         @*<li>@Html.ActionLink("Giriş Yap", "Login", "Users", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+        <li>@Html.ActionLink("Öğretmen Girişi Yap", "Login", "TeacherLogin")</li>
+        <li>@Html.ActionLink("Öğrenci Girişi Yap", "Login", "StudentLogin")</li>
+        <li>@Html.ActionLink("Admin Girişi Yap", "Login", "AdminLogin")</li>
         <li>@Html.ActionLink("Giriş Yap", "Login", "Login")</li>
         <li>@Html.ActionLink("Kayıt Ol", "Create", "Users") </li>
     </ul>

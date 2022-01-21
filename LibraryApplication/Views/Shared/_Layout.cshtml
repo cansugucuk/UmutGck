@@ -21,21 +21,13 @@
                     <span class="icon-bar"></span>
                    
                 </button>
-                @Html.ActionLink("Kütüphane Otomasyonu", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Özel Ders Sistemi", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Anasayfa", "Home", "Home")</li>
-                    @*<li>@Html.ActionLink("Kitaplar", "Index", "Books")</li>
-                    <li>@Html.ActionLink("Ödünç Alınan Kitaplar", "Index", "Borrows")</li>
-                    <li>@Html.ActionLink("Kullanıcı", "Index", "Users")</li>
-                    <li>@Html.ActionLink("Kategori", "Index", "Categories")</li>
-                    <li>@Html.ActionLink("Yazar", "Index", "Authors")</li>*@
                     <li>@Html.ActionLink("Dersler", "Index", "Lessons")</li>
-                    <li>@Html.ActionLink("Admin", "Index", "Admins")</li>
-                    <li>@Html.ActionLink("Öğretmen", "Index", "Teachers")</li>
                     <li>@Html.ActionLink("Öğretmen ders", "Index", "TeacherLessons")</li>
-
                 </ul>
 
                 @Html.Partial("_LoginPartial")
@@ -46,7 +38,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <div style="text-align: center;">©️ 2021 Kütüphane Otomasyonu - Umut Gücük</div> 
+            <div style="text-align: center;">©️ 2022 Özel Ders Sistemi - Umut Gücük</div> 
         </footer>
     </div>
 
